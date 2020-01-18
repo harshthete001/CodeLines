@@ -1,8 +1,8 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-long int mex = 1e8;
-vector <bool> arr(1e8+1,true); 
+long int mex = 1e5;
+vector <bool> arr(1e5+1,true); 
 
 int main()
 {
