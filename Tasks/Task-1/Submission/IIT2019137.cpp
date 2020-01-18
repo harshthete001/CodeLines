@@ -1,35 +1,37 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
+
+long int mex = 1e5;
+vector <bool> arr(1e5+1,true); 
 
 int main()
 {
-int l,r;
- 
-int mx=1e8;
+    long long int l, r;
 
-cin>> l >>r;
+    cin >> l >> r;
 
-int ct=0,a[100000001]={0};
+    long int cnt = 0;
 
-a[0]=1;a[1]=1;
+    arr[0] = false;
 
-for(int i=2;i*i<mx;i++)
-{
-if(a[i]==0)
-{
-for(int j=i+1;j<mx;j+=i)
-a[j]=1;
-}
+    arr[1] = false;
 
-for(int i=l;i<=r;i++)
-if(a[i]==0)
-ct++;
+    for (long int i = 2; i <= mex; i++)
+    {
+        if (arr[i] == true)
+        {
+            for (long long int j = i * i; j < mex; j += i)
+                arr[j] = false;
+        }
+    }
 
-cout<<ct;
+    for (long int i = l; i <= r; i++)
+    {
+        if (arr[i] == true)
+            {
+                cnt++;
+            }
+    }
 
-return 0;
-
-
-
-
+    cout << cnt << "\n";
 }
